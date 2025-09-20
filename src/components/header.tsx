@@ -6,7 +6,7 @@ export default function Header() {
   const location = useLocation();
 
   const links = [
-    { name: "Home", path: "/home" },
+    { name: "Home", path: "/" },
     { name: "Quem Somos", path: "/quem-somos" },
     { name: "FAQ", path: "/faq" },
     { name: "Proposta", path: "/proposta" },
