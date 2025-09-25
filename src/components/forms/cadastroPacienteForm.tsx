@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
-// Tipagem dos dados do formulário
 interface FormData {
   nome: string;
   cpf: string;
@@ -19,7 +18,6 @@ interface FormData {
   estado?: string;
 }
 
-// Schema de validação com Yup
 const schema = Yup.object({
   nome: Yup.string().required("Nome é obrigatório"),
   cpf: Yup.string().required("CPF é obrigatório"),
@@ -44,12 +42,12 @@ const CadastroPacienteForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full max-w-4xl grid grid-cols-2 gap-6 text-black"
+      className="w-full max-w-4xl flex flex-col gap-8 text-black"
     >
       {/* Cadastro de paciente */}
-      <div className="col-span-2">
+      <div>
         <h2 className="text-orange-500 font-bold mb-3">Cadastro de paciente</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <input
               {...register("nome")}
@@ -82,7 +80,7 @@ const CadastroPacienteForm = () => {
             />
             {errors.telefone && <p className="text-red-500 text-sm">{errors.telefone.message}</p>}
           </div>
-          <div className="col-span-2">
+          <div className="md:col-span-2">
             <input
               {...register("email")}
               placeholder="Email*"
@@ -94,9 +92,9 @@ const CadastroPacienteForm = () => {
       </div>
 
       {/* Cadastro de acompanhante */}
-      <div className="col-span-2">
+      <div>
         <h2 className="text-orange-500 font-bold mb-3">Cadastro de acompanhante</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             {...register("acompanhante")}
             placeholder="Nome"
@@ -110,15 +108,15 @@ const CadastroPacienteForm = () => {
           <input
             {...register("parentesco")}
             placeholder="Parentesco"
-            className="w-full p-3 rounded-2xl bg-gray-200"
+            className="w-full p-3 rounded-2xl bg-gray-200 md:col-span-2"
           />
         </div>
       </div>
 
       {/* Endereço */}
-      <div className="col-span-2">
+      <div>
         <h2 className="text-orange-500 font-bold mb-3">Endereço</h2>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <input
             {...register("cep")}
             placeholder="CEP"
@@ -142,13 +140,13 @@ const CadastroPacienteForm = () => {
           <input
             {...register("estado")}
             placeholder="Estado"
-            className="w-full p-3 rounded-2xl bg-gray-200"
+            className="w-full p-3 rounded-2xl bg-gray-200 md:col-span-2"
           />
         </div>
       </div>
 
-      {/* Botão de envio */}
-      <div className="col-span-2 flex justify-end mt-4">
+      {/* Botão */}
+      <div className="flex justify-center mt-4">
         <button
           type="submit"
           className="!bg-orange-500 text-white px-6 py-3 rounded-2xl font-semibold"

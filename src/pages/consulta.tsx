@@ -21,9 +21,9 @@ const Consulta = () => {
   }
 
   return (
-    <div className="flex min-h-[70vh] min-w-screen bg-gradient-to-b from-neutral-900 via-neutral-800 to-neutral-900">
-      {/* Sidebar */}
-      <aside className="w-1/4 bg-gray-200 p-6 flex flex-col gap-6">
+    <div className="flex flex-col md:flex-row min-h-[70vh] min-w-screen overflow-x-hidden bg-gradient-to-b from-neutral-900 via-neutral-800 to-neutral-900 pt-14 md:pt-0">
+        {/* Sidebar */}
+        <aside className="w-full md:min-w-[250px] md:w-1/4 bg-gray-200 p-6 flex flex-col gap-6">
         {/* Botão cadastrar paciente */}
         <button
           onClick={() => {
@@ -72,7 +72,7 @@ const Consulta = () => {
             </div>
 
             {/* Dias do mês */}
-            <div className="grid grid-cols-7 gap-2 text-center ml-4">
+            <div className="grid grid-cols-7 gap-2 text-center">
               {emptyDays.map((_, index) => (
                 <div key={`empty-${index}`} className="w-8 h-8"></div>
               ))}
@@ -94,22 +94,18 @@ const Consulta = () => {
         </div>
       </aside>
 
-      {/* Conteúdo principal */}
-      <main className="flex-1 flex items-center justify-center text-white p-6">
-        {!showForm && !showAgendamento && (
-          <div className="text-center">
-            <img
-              src={LogoMindev}
-              alt="Mindev"
-              className="mx-auto mb-4 w-40 opacity-80"
-            />
-            <h1 className="text-3xl font-bold text-orange-600">Mindev</h1>
-          </div>
-        )}
+        {/* Conteúdo principal */}
+        <main className="flex-1 flex items-center justify-center text-white p-6">
+            {!showForm && !showAgendamento && (
+                <div className="flex items-center justify-center gap-4">
+                    <img src={LogoMindev} alt="Mindev" className="w-20 opacity-80" />
+                    <h1 className="text-3xl font-bold text-orange-600">Mindev</h1>
+                </div>
+            )}
 
-        {showForm && <CadastroPacienteForm />}
-        {showAgendamento && <AgendamentoConsulta />}
-      </main>
+            {showForm && <CadastroPacienteForm />}
+            {showAgendamento && <AgendamentoConsulta />}
+        </main>
     </div>
   )
 }

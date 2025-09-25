@@ -30,7 +30,7 @@ const AgendamentoConsulta = () => {
         return (
           <div
             key={h.id}
-            className="grid grid-cols-9 gap-4 items-center border-b border-gray-400 py-3"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-4 items-center border-b border-gray-400 py-3"
           >
             {/* Radiobutton Presencial */}
             <label className="flex items-center gap-1">
@@ -105,7 +105,7 @@ const AgendamentoConsulta = () => {
             </select>
 
             {/* Acompanhante + Botão */}
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
                 <label className="flex items-center gap-2">
                     <input type="checkbox" />
                     Acompanhante necessário?
