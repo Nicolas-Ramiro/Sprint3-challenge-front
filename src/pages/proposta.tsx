@@ -5,77 +5,88 @@ export default function Proposta() {
     <main className="min-h-[70vh] min-w-screen bg-gradient-to-b from-neutral-900 via-neutral-800 to-neutral-900 text-white pt-32 pb-20 px-6">
       <div className="w-full flex flex-col gap-10 items-center">
         {/* Card Proposta */}
-        <section className="border-2 border-orange-500 rounded-xl p-6 flex flex-col items-center text-justify w-[500px]">
+        <section className="border-2 border-orange-500 rounded-xl p-6 flex flex-col items-center text-justify w-full max-w-[500px]">
           <h3 className="text-orange-500 font-bold text-2xl mb-4 text-center">
             Proposta
           </h3>
           <p className="text-base leading-relaxed">
-            A MindDev propõe uma solução inclusiva para facilitar o acesso à
-            saúde digital, especialmente para pacientes com deficiência física
-            ou baixa familiaridade com tecnologia. A proposta envolve um chatbot
-            assistido por voz aliado a uma consultoria completa.
+            A solução da Mindev foi desenvolvida para enfrentar as barreiras
+            tecnológicas que dificultam o acesso à saúde digital, especialmente
+            para pacientes com deficiência física ou com dificuldades no uso de
+            dispositivos móveis. O sistema foca em uma jornada do paciente mais
+            fluida, que integra ferramentas para agendamento e comunicação, com
+            o objetivo de reduzir a taxa de absenteísmo nas teleconsultas.
           </p>
         </section>
 
-        {/* Linha com dois cards lado a lado */}
-        <div className="w-full flex flex-col md:flex-row gap-10 justify-center">
-          {/* Card Tecnologia Utilizada */}
-          <section className="border-2 border-orange-500 rounded-xl p-6 flex flex-col items-center text-justify w-[500px]">
+        {/* Grid Responsivo */}
+        <div
+          className="
+            flex flex-col gap-10 w-full items-center
+            !lg:grid !lg:grid-cols-2 !lg:gap-10 !lg:max-w-6xl
+            xl:flex xl:flex-row xl:justify-center xl:max-w-none
+          "
+        >
+          {/* Chatbot Assistido por Voz */}
+          <section className="border-2 border-orange-500 rounded-xl p-6 flex flex-col items-center text-justify w-full max-w-[500px]">
             <h3 className="text-orange-500 font-bold text-xl mb-4 text-center">
-              Tecnologia Utilizada
+              Chatbot Assistido por Voz
+            </h3>
+            <p className="text-base leading-relaxed">
+              O chatbot, desenvolvido na plataforma Watson Assistant, utiliza
+              inteligência artificial para interpretar as intenções dos usuários
+              e responder de forma precisa e personalizada. A tecnologia de
+              reconhecimento de fala (Speech-to-Text) transforma a fala dos
+              pacientes em texto, permitindo que o chatbot entenda comandos e
+              solicitações. Já a tecnologia Text-to-Speech converte a resposta
+              do chatbot para áudio, tornando a informação acessível a todos.
+            </p>
+          </section>
+
+          {/* Funcionalidades do chatbot */}
+          <section className="border-2 border-orange-500 rounded-xl p-6 flex flex-col items-center text-justify w-full max-w-[500px]">
+            <h3 className="text-orange-500 font-bold text-xl mb-4 text-center">
+              Funcionalidades do chatbot
             </h3>
             <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
               <li>
-                <strong>Watson Assistant com IA:</strong> Integrado ao WhatsApp
-                para interação por mensagens de voz.
+                <strong>Confirmação de Consultas:</strong> O chatbot pode
+                confirmar agendamentos de forma rápida e simples, usando apenas
+                a voz.
               </li>
               <li>
-                <strong>Speech-to-Text (STT):</strong> Transforma fala em texto
-                para o chatbot entender.
+                <strong>Reagendamento de Consultas:</strong> Se o paciente
+                precisar alterar o horário, o procedimento pode ser feito de
+                maneira ágil, sem a necessidade de intervenção humana.
               </li>
               <li>
-                <strong>Text-to-Speech (TTS):</strong> Respostas em áudio para
-                facilitar a compreensão.
+                <strong>Obtenção de Informações:</strong> O sistema fornece
+                informações sobre serviços e procedimentos de forma direta por
+                voz.
+              </li>
+              <li>
+                <strong>Memorização de Contexto:</strong> O sistema lembra
+                informações da conversa para oferecer um atendimento
+                personalizado e contínuo, com base no histórico de interações.
               </li>
             </ul>
           </section>
 
-          {/* Card Etapas da Consultoria */}
-          <section className="border-2 border-orange-500 rounded-xl p-6 flex flex-col items-center text-justify w-[500px]">
+          {/* Plataforma de agendamento */}
+          <section className="border-2 border-orange-500 rounded-xl p-6 flex flex-col items-center text-justify w-full max-w-[500px]">
             <h3 className="text-orange-500 font-bold text-xl mb-4 text-center">
-              Etapas da Consultoria
+              Plataforma de agendamento
             </h3>
-            <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
-              <li>
-                <strong>Pesquisa de Campo:</strong> Levantamento dos desafios
-                enfrentados pelos pacientes do IMREA.
-              </li>
-              <li>
-                <strong>Mapeamento de Processos:</strong> Análise da jornada do
-                paciente para identificar pontos críticos.
-              </li>
-              <li>
-                <strong>Documentos IS THIS e TO BE:</strong> Descrição do
-                cenário atual e do cenário ideal com propostas de melhoria.
-              </li>
-              <li>
-                <strong>Reformulação do Sistema:</strong> Melhoria da interface
-                e navegação, com foco na acessibilidade.
-              </li>
-            </ul>
+            <p className="text-base leading-relaxed">
+              Além do chatbot, a Mindev propõe a criação de uma tela de
+              agendamento de consultas para ser integrada aos sistemas já
+              utilizados internamente. Essa plataforma permite que pacientes ou
+              acompanhantes agendem consultas, e posteriormente, consultem as
+              informações de seus agendamentos. A solução também gera um banco
+              de dados para a equipe administrativa, facilitando a organização
+              das atividades e o acompanhamento dos agendamentos.
+            </p>
           </section>
-
-          {/* Card Funcionalidades */}
-        <section className="border-2 border-orange-500 rounded-xl p-6 flex flex-col items-center text-justify w-[500px]">
-          <h3 className="text-orange-500 font-bold text-xl mb-4 text-center">
-            Funcionalidades Principais
-          </h3>
-          <ul className="list-disc list-inside space-y-2 text-sm leading-relaxed">
-            <li>Confirmação e reagendamento de consultas por voz.</li>
-            <li>Fornecimento de informações sobre serviços.</li>
-            <li>Atendimento personalizado com memorização de contexto.</li>
-          </ul>
-        </section>
         </div>
       </div>
     </main>
