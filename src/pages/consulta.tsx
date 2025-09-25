@@ -1,13 +1,24 @@
-import { useState } from "react";
-import LogoMindev from "../assets/LogoMindev.png";
-import CadastroPacienteForm from "../components/forms/cadastroPacienteForm";
+import { useState } from "react"
+import LogoMindev from "../assets/LogoMindev.png"
+import CadastroPacienteForm from "../components/forms/cadastroPacienteForm"
+import AgendamentoConsulta from "../components/forms/agendamentoConsulta"
 
 const Consulta = () => {
-  const [selectedDay, setSelectedDay] = useState<number | null>(null);
-  const [showForm, setShowForm] = useState(false);
+  const [selectedDay, setSelectedDay] = useState<number | null>(null)
+  const [showForm, setShowForm] = useState(false)
+  const [specialty, setSpecialty] = useState("")
+  const [showAgendamento, setShowAgendamento] = useState(false)
 
-  const daysInSeptember = Array.from({ length: 30 }, (_, i) => i + 1);
-  const emptyDays = Array.from({ length: 1 }, (_, i) => i);
+  const daysInSeptember = Array.from({ length: 30 }, (_, i) => i + 1)
+  const emptyDays = Array.from({ length: 1 }, (_, i) => i)
+
+  const handleAgendamento = (day: number) => {
+    setSelectedDay(day)
+    if (specialty.trim() !== "") {
+      setShowAgendamento(true)
+      setShowForm(false)
+    }
+  }
 
   return (
     <div className="flex min-h-[70vh] min-w-screen bg-gradient-to-b from-neutral-900 via-neutral-800 to-neutral-900">
@@ -15,7 +26,10 @@ const Consulta = () => {
       <aside className="w-1/4 bg-gray-200 p-6 flex flex-col gap-6">
         {/* Botão cadastrar paciente */}
         <button
-          onClick={() => setShowForm(true)}
+          onClick={() => {
+            setShowForm(true)
+            setShowAgendamento(false)
+          }}
           className="!bg-orange-500 text-white text-xl font-semibold py-3 rounded-2xl"
         >
           Cadastrar paciente
@@ -29,6 +43,8 @@ const Consulta = () => {
           <input
             type="text"
             placeholder="Digite a especialidade"
+            value={specialty}
+            onChange={(e) => setSpecialty(e.target.value)}
             className="w-full p-3 rounded-2xl bg-orange-500 text-white placeholder-white"
           />
         </div>
@@ -63,7 +79,7 @@ const Consulta = () => {
               {daysInSeptember.map((day) => (
                 <button
                   key={day}
-                  onClick={() => setSelectedDay(day)}
+                  onClick={() => handleAgendamento(day)}
                   className={`w-8 h-8 flex items-center justify-center rounded-full transition !bg-transparent ${
                     selectedDay === day
                       ? "bg-white text-black font-bold"
@@ -80,7 +96,7 @@ const Consulta = () => {
 
       {/* Conteúdo principal */}
       <main className="flex-1 flex items-center justify-center text-white p-6">
-        {!showForm ? (
+        {!showForm && !showAgendamento && (
           <div className="text-center">
             <img
               src={LogoMindev}
@@ -89,12 +105,13 @@ const Consulta = () => {
             />
             <h1 className="text-3xl font-bold text-orange-600">Mindev</h1>
           </div>
-        ) : (
-          <CadastroPacienteForm />
         )}
+
+        {showForm && <CadastroPacienteForm />}
+        {showAgendamento && <AgendamentoConsulta />}
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Consulta;
+export default Consulta
