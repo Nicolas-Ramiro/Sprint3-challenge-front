@@ -17,7 +17,7 @@ const faqData = [
 
 export default function Faq() {
   return (
-    <section className="w-screen min-h-screen flex flex-col items-center justify-center px-6 bg-gradient-to-b from-zinc-950 via-zinc-800 to-zinc-900">
+    <section className="min-w-screen min-h-[70vh] flex flex-col items-center justify-center px-6 bg-gradient-to-b from-zinc-950 via-zinc-800 to-zinc-900">
       <h2 className="text-4xl font-bold text-orange-500 mb-8">FAQ</h2>
       <div className="w-full max-w-3xl flex flex-col gap-4">
         {faqData.map((item, idx) => (
