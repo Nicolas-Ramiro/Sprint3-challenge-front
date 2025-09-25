@@ -11,7 +11,7 @@ export default function FaqItem({ question, answer }: FaqItemProps) {
   return (
     <div className="rounded-md shadow-md overflow-hidden transition w-full">
       <button
-        className="w-full flex justify-between items-center p-6 text-lg font-semibold text-orange-500"
+        className="w-full flex justify-between !bg-white items-center p-6 text-lg font-semibold text-orange-500"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{question}</span>
