@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import QuemSomos from "./pages/quemSomos";
 import Faq from "./pages/faq";
 import Proposta from "./pages/proposta";
+import Contato from "./pages/contato";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           <Route path="/quem-somos" element={<QuemSomos />} />
           <Route path="/faq" element={<Faq />} /> 
           <Route path="/proposta" element={<Proposta />} /> 
-          {/* <Route path="/contato" element={<Contato />} /> */}
+          <Route path="/contato" element={<Contato />} /> 
           {/* <Route path="/consulta" element={<Consulta />} /> */}
         </Routes>
       </main>
