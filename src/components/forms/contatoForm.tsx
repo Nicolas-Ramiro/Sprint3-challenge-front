@@ -132,13 +132,15 @@ export default function ContatoForm() {
       />
 
       {/* Botão */}
-      <button
-        type="submit"
-        disabled={loading || !isValid}
-        className="bg-orange-600 text-white font-bold py-3 px-6 rounded-xl hover:opacity-90 w-32 disabled:opacity-50"
-      >
-        {loading ? "Enviando..." : "Enviar"}
-      </button>
+      <div className="flex justify-center mt-4">
+        <button
+          type="submit"
+          disabled={loading || !isValid}
+          className="!bg-orange-500 text-white font-bold py-3 px-6 rounded-xl hover:opacity-90 w-32 disabled:opacity-50 "
+        >
+          {loading ? "Enviando..." : "Enviar"}
+        </button>
+      </div>
     </form>
   );
 }
