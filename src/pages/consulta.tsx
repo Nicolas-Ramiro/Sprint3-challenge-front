@@ -1,8 +1,11 @@
 import { useState } from "react";
 import LogoMindev from "../assets/LogoMindev.png";
+import CadastroPacienteForm from "../components/forms/cadastroPacienteForm";
 
 const Consulta = () => {
   const [selectedDay, setSelectedDay] = useState<number | null>(null);
+  const [showForm, setShowForm] = useState(false);
+
   const daysInSeptember = Array.from({ length: 30 }, (_, i) => i + 1);
   const emptyDays = Array.from({ length: 1 }, (_, i) => i);
 
@@ -11,7 +14,10 @@ const Consulta = () => {
       {/* Sidebar */}
       <aside className="w-1/4 bg-gray-200 p-6 flex flex-col gap-6">
         {/* Botão cadastrar paciente */}
-        <button className="!bg-orange-500 text-white text-xl font-semibold py-3 rounded-2xl">
+        <button
+          onClick={() => setShowForm(true)}
+          className="!bg-orange-500 text-white text-xl font-semibold py-3 rounded-2xl"
+        >
           Cadastrar paciente
         </button>
 
@@ -51,11 +57,9 @@ const Consulta = () => {
 
             {/* Dias do mês */}
             <div className="grid grid-cols-7 gap-2 text-center ml-4">
-              {/* Renderiza os dias vazios */}
               {emptyDays.map((_, index) => (
                 <div key={`empty-${index}`} className="w-8 h-8"></div>
               ))}
-              {/* Renderiza os dias do mês */}
               {daysInSeptember.map((day) => (
                 <button
                   key={day}
@@ -75,15 +79,19 @@ const Consulta = () => {
       </aside>
 
       {/* Conteúdo principal */}
-      <main className="flex-1 flex items-center justify-center text-white">
-        <div className="text-center">
-          <img
-            src={LogoMindev}
-            alt="Mindev"
-            className="mx-auto mb-4 w-40 opacity-80"
-          />
-          <h1 className="text-3xl font-bold text-orange-600">Mindev</h1>
-        </div>
+      <main className="flex-1 flex items-center justify-center text-white p-6">
+        {!showForm ? (
+          <div className="text-center">
+            <img
+              src={LogoMindev}
+              alt="Mindev"
+              className="mx-auto mb-4 w-40 opacity-80"
+            />
+            <h1 className="text-3xl font-bold text-orange-600">Mindev</h1>
+          </div>
+        ) : (
+          <CadastroPacienteForm />
+        )}
       </main>
     </div>
   );
