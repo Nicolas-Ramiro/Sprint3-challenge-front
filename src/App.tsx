@@ -5,6 +5,7 @@ import QuemSomos from "./pages/quemSomos";
 import Faq from "./pages/faq";
 import Proposta from "./pages/proposta";
 import Contato from "./pages/contato";
+import Consulta from "./pages/consulta";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route path="/faq" element={<Faq />} /> 
           <Route path="/proposta" element={<Proposta />} /> 
           <Route path="/contato" element={<Contato />} /> 
-          {/* <Route path="/consulta" element={<Consulta />} /> */}
+          <Route path="/consulta" element={<Consulta />} />
         </Routes>
       </main>
       <Footer />
